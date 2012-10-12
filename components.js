@@ -76,6 +76,33 @@
 
 
 	/*
+	 *	Slide Scroll
+	 */
+	$.slideScroll = function( options ){
+		var $a = $('a[href^="#"]');
+		var slider = $.support.boxModel ? navigator.appName.match(/Opera/) ? "html" : "html,body" : "body";
+		var opt = options || {};
+		var settings = {
+			easing : 'normal',
+			speed : 300
+		};
+		settings = $.extend( settings, opt );
+		$a.click(function(e){
+			e.preventDefault();
+			var _target = $(this).attr('href');
+			var _pos = $(_target).offset().top;
+			$(slider).animate({
+				scrollTop : _pos
+			},{
+				duration : settings.speed,
+				easing : settings.easing,
+				queue : false
+			});
+		});
+	};
+
+
+	/*
 	 *	Linker
 	 */	
 	$.linker = function( options ){
