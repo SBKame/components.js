@@ -2,7 +2,7 @@
 * components.js
 *
 * @version beta
-* @author SBKame
+* @author GNOME FACTORY
 */
 
 (function($){
